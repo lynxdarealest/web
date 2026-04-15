@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Gamepad2 className="h-8 w-8 text-primary" />
           <span className="text-2xl font-black tracking-widest text-primary uppercase">
-            NGỌC RỒNG <span className="text-white">ONLINE</span>
+            RONG THAN <span className="text-white">ONLINE</span>
           </span>
         </div>
 
