@@ -83,7 +83,7 @@ export default function Hero({ stats, loading }: HeroProps) {
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/20">
               <motion.img
                 src="/images/hero-bgr.png"
-                alt="Ngoc Rong Online Preview"
+                alt="Rong Than Online Preview"
                 className="w-full h-auto object-cover"
                 animate={{
                   scale: [1, 1.08, 1],
