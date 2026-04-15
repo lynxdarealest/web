@@ -1,8 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Download, PlayCircle } from "lucide-react";
 import { motion } from "motion/react";
+import type { DashboardStats } from "@/hooks/useDashboard";
 
-export default function Hero() {
+interface HeroProps {
+  stats: DashboardStats;
+  loading: boolean;
+}
+
+function formatStat(value: number, loading: boolean): string {
+  if (loading) {
+    return "...";
+  }
+  return value.toLocaleString("vi-VN");
+}
+
+export default function Hero({ stats, loading }: HeroProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#1a1a24]/80 to-[#0d0d12]/40 border border-border rounded-xl p-10">
       <div className="relative z-10">
@@ -18,7 +31,7 @@ export default function Hero() {
                 <span className="text-white">CHIẾN BINH SAIYAN</span>
               </h1>
               <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                Khám phá thế giới rồng thiêng đầy bí ẩn, chinh phục những thử thách khắc nghiệt nhất cùng hàng triệu người chơi khác.
+                Khám phá thế giới rồng thiêng đầy bí ẩn, chinh phục những thử thách khắc nghiệt nhất cùng cộng đồng game thủ.
               </p>
             </motion.div>
 
@@ -45,18 +58,18 @@ export default function Hero() {
               className="flex items-center justify-center lg:justify-start gap-8 pt-4"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold">1M+</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-widest">Người chơi</div>
+                <div className="text-2xl font-bold">{formatStat(stats.totalAccounts, loading)}</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-widest">Tài khoản</div>
               </div>
               <div className="border-l h-8" />
               <div className="text-center">
-                <div className="text-2xl font-bold">4.8/5</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-widest">Đánh giá</div>
+                <div className="text-2xl font-bold">{formatStat(stats.totalCharacters, loading)}</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-widest">Nhân vật</div>
               </div>
               <div className="border-l h-8" />
               <div className="text-center">
-                <div className="text-2xl font-bold">24/7</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-widest">Hỗ trợ</div>
+                <div className="text-2xl font-bold">{formatStat(stats.onlineCharacters, loading)}</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-widest">Đang Online</div>
               </div>
             </motion.div>
           </div>
@@ -96,13 +109,12 @@ export default function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                 <div className="text-white">
-                  <div className="text-sm font-medium uppercase tracking-widest opacity-80">Sự kiện mới</div>
-                  <div className="text-2xl font-bold">Đại Hội Võ Thuật Lần Thứ 23</div>
+                  <div className="text-sm font-medium uppercase tracking-widest opacity-80">Giao dịch hôm nay</div>
+                  <div className="text-2xl font-bold">{formatStat(stats.rechargeToday, loading)} lượt nạp</div>
                 </div>
               </div>
             </div>
-            
-            {/* Decorative elements */}
+
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-accent rounded-full flex items-center justify-center shadow-xl animate-bounce">
               <span className="text-3xl">⭐</span>
             </div>
