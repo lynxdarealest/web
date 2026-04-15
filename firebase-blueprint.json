@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile and game data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "username": { "type": "string", "description": "Display name in game" },
+        "email": { "type": "string", "format": "email" },
+        "level": { "type": "number", "description": "Current level" },
+        "power": { "type": "number", "description": "Power level" },
+        "balance": { "type": "number", "description": "Account balance in VND" },
+        "gems": { "type": "number", "description": "Premium currency" },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "username", "email"]
+    },
+    "transactions": {
+      "title": "Transaction",
+      "description": "Topup history",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "amount": { "type": "number" },
+        "type": { "type": "string", "enum": ["card", "bank", "momo", "sms"] },
+        "status": { "type": "string", "enum": ["pending", "success", "failed"] },
+        "cardType": { "type": "string" },
+        "serial": { "type": "string" },
+        "pin": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "amount", "type", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User documents"
+    },
+    "/transactions/{transactionId}": {
+      "schema": "transactions",
+      "description": "Topup transactions"
+    }
+  }
+}
