@@ -118,7 +118,7 @@ export default function Hero({ stats, loading }: HeroProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                 <div className="text-white">
-                  <div className="text-sm font-medium uppercase tracking-widest opacity-80">Giao dịch hôm nay</div>
+                  <div className="text-sm font-medium uppercase tracking-widest opacity-80">Giao dịch ZaloPay hôm nay</div>
                   <div className="text-2xl font-bold">{formatStat(stats.rechargeToday, loading)} lượt nạp</div>
                 </div>
               </div>

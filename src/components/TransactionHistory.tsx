@@ -3,7 +3,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { webApiFetch } from "@/lib/web-api";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, CheckCircle2, AlertCircle, Landmark, Gem, Coins } from "lucide-react";
+import { FileText, CheckCircle2, AlertCircle, Wallet, Gem, Coins } from "lucide-react";
 
 interface Transaction {
   id: number;
@@ -85,7 +85,7 @@ export default function TransactionHistory() {
     <section className="py-12">
       <div className="flex items-center gap-2 mb-8">
         <FileText className="h-5 w-5 text-primary" />
-        <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Lịch sử nạp gần đây</h2>
+        <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Lịch sử nạp ZaloPay gần đây</h2>
       </div>
 
       {loading ? (
@@ -93,7 +93,7 @@ export default function TransactionHistory() {
       ) : transactions.length === 0 ? (
         <Card className="bg-card border-border border-dashed p-12 text-center">
           <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-          <p className="text-muted-foreground">Bạn chưa có giao dịch nào.</p>
+          <p className="text-muted-foreground">Bạn chưa có giao dịch ZaloPay nào.</p>
         </Card>
       ) : (
         <div className="space-y-4">
@@ -107,13 +107,13 @@ export default function TransactionHistory() {
                     ) : tx.coin > 0 ? (
                       <Coins className="h-5 w-5" />
                     ) : (
-                      <Landmark className="h-5 w-5" />
+                      <Wallet className="h-5 w-5" />
                     )}
                   </div>
                   <div>
                     <div className="text-sm font-bold uppercase tracking-tight">Nạp tài nguyên</div>
                     <div className="text-[10px] text-muted-foreground">{formatDate(tx.createTime)}</div>
-                    <div className="text-[10px] text-muted-foreground italic">{tx.reason || "Nạp từ web"}</div>
+                    <div className="text-[10px] text-muted-foreground italic">{tx.reason || "Nạp ZaloPay từ web"}</div>
                   </div>
                 </div>
 
