@@ -27,11 +27,11 @@ export default function Hero({ stats, loading }: HeroProps) {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-5xl lg:text-6xl font-black tracking-tight text-primary leading-tight uppercase drop-shadow-[2px_2px_0px_rgba(0,0,0,0.5)]">
-                TRỞ THÀNH <br />
-                <span className="text-white">CHIẾN BINH SAIYAN</span>
+                RONG THAN <br />
+                <span className="text-white">ONLINE CHÍNH THỨC</span>
               </h1>
               <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                Khám phá thế giới rồng thiêng đầy bí ẩn, chinh phục những thử thách khắc nghiệt nhất cùng cộng đồng game thủ.
+                Đăng nhập, tạo tài khoản, nạp tiền và theo dõi sự kiện trực tiếp tại vercel.lynxphg.me. Tất cả dữ liệu đồng bộ với máy chủ game.
               </p>
             </motion.div>
 
@@ -41,13 +41,22 @@ export default function Hero({ stats, loading }: HeroProps) {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-wrap justify-center lg:justify-start gap-4"
             >
-              <Button size="lg" className="h-14 px-8 text-lg gap-2 shadow-lg shadow-primary/20">
+              <Button
+                size="lg"
+                className="h-14 px-8 text-lg gap-2 shadow-lg shadow-primary/20"
+                onClick={() => document.getElementById("download")?.scrollIntoView({ behavior: "smooth" })}
+              >
                 <Download className="h-5 w-5" />
                 Tải Game Ngay
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-lg gap-2">
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 px-8 text-lg gap-2"
+                onClick={() => document.getElementById("news")?.scrollIntoView({ behavior: "smooth" })}
+              >
                 <PlayCircle className="h-5 w-5" />
-                Xem Trailer
+                Xem Tin Tức
               </Button>
             </motion.div>
 
@@ -83,7 +92,7 @@ export default function Hero({ stats, loading }: HeroProps) {
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/20">
               <motion.img
                 src="/images/hero-bgr.png"
-                alt="Rong Than Online Preview"
+                alt="Rong Than Online"
                 className="w-full h-auto object-cover"
                 animate={{
                   scale: [1, 1.08, 1],

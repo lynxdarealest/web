@@ -114,7 +114,7 @@ export default function AuthModal({ children }: { children: ReactNode }) {
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[420px]">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">Tai Khoan Rong Than Online</DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-center">Tài khoản Rong Than Online</DialogTitle>
           <DialogDescription className="text-center">
             Đăng ký hoặc đăng nhập để sử dụng tài khoản trực tiếp trong game.
           </DialogDescription>

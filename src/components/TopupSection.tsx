@@ -281,30 +281,28 @@ export default function TopupSection() {
             <div className="space-y-2 text-[11px]">
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">Ngân hàng:</span>
-                <span className="font-bold">{bankRequest?.bankName || "MB Bank"}</span>
+                <span className="font-bold">{bankRequest?.bankName || "Tạo lệnh để xem"}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">Số tài khoản:</span>
                 <div className="flex items-center gap-1">
-                  <span className="font-bold">{bankRequest?.accountNumber || "0343250106"}</span>
+                  <span className="font-bold">{bankRequest?.accountNumber || "Tạo lệnh để nhận số"}</span>
                   <Copy
                     className="h-3 w-3 cursor-pointer hover:text-primary"
-                    onClick={() => void copyToClipboard(bankRequest?.accountNumber || "0343250106")}
+                    onClick={() => void copyToClipboard(bankRequest?.accountNumber || "")}
                   />
                 </div>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">Chủ tài khoản:</span>
                 <div className="flex items-center gap-1">
-                  <span className="font-bold">{bankRequest?.accountName || "TAIKHOAN TRIEU LONG PHUC"}</span>
+                  <span className="font-bold">{bankRequest?.accountName || "Tạo lệnh để nhận tên"}</span>
                 </div>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">Nội dung:</span>
                 <div className="flex items-center gap-1">
-                  <span className="font-bold text-primary">
-                    {bankRequest?.transferContent || "Tạo lệnh để nhận mã nạp"}
-                  </span>
+                  <span className="font-bold text-primary">{bankRequest?.transferContent || "Tạo lệnh để nhận mã nạp"}</span>
                   <Copy
                     className="h-3 w-3 cursor-pointer hover:text-primary"
                     onClick={() =>
@@ -374,11 +372,8 @@ export default function TopupSection() {
                 <span className="font-bold text-[#A50064]">MoMo</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-muted-foreground">Số điện thoại:</span>
-                <div className="flex items-center gap-1">
-                  <span className="font-bold">0987654321</span>
-                  <Copy className="h-3 w-3 cursor-pointer hover:text-primary" onClick={() => void copyToClipboard("0987654321")} />
-                </div>
+                <span className="text-muted-foreground">Trạng thái:</span>
+                <span className="font-bold">Đang đồng bộ theo lệnh nạp</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-muted-foreground">Nội dung:</span>
