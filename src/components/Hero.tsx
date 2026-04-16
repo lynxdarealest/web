@@ -30,9 +30,6 @@ export default function Hero({ stats, loading }: HeroProps) {
                 RONG THAN <br />
                 <span className="text-white">ONLINE CHÍNH THỨC</span>
               </h1>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                Đăng nhập, tạo tài khoản, nạp tiền và theo dõi sự kiện trực tiếp tại vercel.lynxphg.me. Tất cả dữ liệu đồng bộ với máy chủ game.
-              </p>
             </motion.div>
 
             <motion.div

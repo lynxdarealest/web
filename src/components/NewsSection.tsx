@@ -12,6 +12,24 @@ interface EventsResponse {
   events?: EventItem[];
 }
 
+const DEFAULT_EVENT_GUIDE: EventItem[] = [
+  {
+    title: "Giới thiệu sự kiện Giỗ tổ Hùng Vương",
+    description:
+      "Đồng hành cùng Vua Hùng, thu thập lễ vật để mở quà hiếm, đua TOP và đổi điểm nhận vật phẩm giá trị.",
+  },
+  {
+    title: "Cơ chế tham gia",
+    description:
+      "1) Gõ hv để nhận hộ tống Mị Nương.\n2) Hạ quái nhận Voi 9 ngà, làm nhiệm vụ ngày nhận Gà 9 cựa.\n3) Hoàn thành hộ tống nhận Ngựa 9 hồng mao.\n4) Chế tạo Lễ vật thường/đặc biệt để mở quà và tích điểm.",
+  },
+  {
+    title: "Cơ chế nạp và đổi quà",
+    description:
+      "Mỗi 700 Kim cương nạp hoặc được tặng sẽ nhận 1 Capsule Hùng Vương. Điểm sự kiện dùng tại mục Đổi điểm để mua quà.",
+  },
+];
+
 export default function NewsSection() {
   const [events, setEvents] = useState<EventItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,9 +38,10 @@ export default function NewsSection() {
     const load = async () => {
       try {
         const response = await webApiFetch<EventsResponse>("/api/web/events");
-        setEvents(Array.isArray(response.events) ? response.events : []);
+        const serverEvents = Array.isArray(response.events) ? response.events : [];
+        setEvents(serverEvents.length > 0 ? serverEvents : DEFAULT_EVENT_GUIDE);
       } catch (_error) {
-        setEvents([]);
+        setEvents(DEFAULT_EVENT_GUIDE);
       } finally {
         setLoading(false);
       }
@@ -58,7 +77,7 @@ export default function NewsSection() {
                 <CardTitle className="text-base leading-tight group-hover:text-primary transition-colors line-clamp-2">
                   {item.title}
                 </CardTitle>
-                <p className="mt-2 text-xs text-muted-foreground">{item.description}</p>
+                <p className="mt-2 text-xs text-muted-foreground whitespace-pre-line">{item.description}</p>
               </div>
             </Card>
           ))}

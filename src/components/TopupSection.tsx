@@ -25,6 +25,8 @@ interface TopupRequest {
 }
 
 const ZALOPAY_AMOUNTS = [10000, 20000, 50000, 100000, 200000, 500000];
+const ZALOPAY_WALLET = "0876522271";
+const ZALOPAY_OWNER = "NGUYEN TO DUC TRUONG";
 
 export default function TopupSection() {
   const [isLoading, setIsLoading] = useState(false);
@@ -170,16 +172,16 @@ export default function TopupSection() {
           <div className="flex justify-between items-center gap-4">
             <span className="text-muted-foreground">Số ví / tài khoản:</span>
             <div className="flex items-center gap-1 min-w-0">
-              <span className="font-bold truncate">{topupRequest?.accountNumber || "Tạo lệnh để nhận số ví"}</span>
+              <span className="font-bold truncate">{topupRequest?.accountNumber || ZALOPAY_WALLET}</span>
               <Copy
                 className="h-3 w-3 cursor-pointer hover:text-primary shrink-0"
-                onClick={() => void copyToClipboard(topupRequest?.accountNumber || "")}
+                onClick={() => void copyToClipboard(topupRequest?.accountNumber || ZALOPAY_WALLET)}
               />
             </div>
           </div>
           <div className="flex justify-between items-center gap-4">
             <span className="text-muted-foreground">Chủ ví:</span>
-            <span className="font-bold">{topupRequest?.accountName || "Tạo lệnh để nhận tên"}</span>
+            <span className="font-bold">{topupRequest?.accountName || ZALOPAY_OWNER}</span>
           </div>
           <div className="flex justify-between items-center gap-4">
             <span className="text-muted-foreground">Nội dung:</span>

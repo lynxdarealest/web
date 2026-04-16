@@ -116,7 +116,7 @@ export default function AuthModal({ children }: { children: ReactNode }) {
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center">Tài khoản Rong Than Online</DialogTitle>
           <DialogDescription className="text-center">
-            Đăng ký hoặc đăng nhập để sử dụng tài khoản trực tiếp trong game.
+            Đăng ký hoặc đăng nhập để sử dụng tài khoản trực tiếp trong game tại rto.lynxphg.me.
           </DialogDescription>
         </DialogHeader>
 
