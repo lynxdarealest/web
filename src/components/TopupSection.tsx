@@ -131,7 +131,7 @@ export default function TopupSection() {
   };
 
   return (
-    <Card id="topup" className="bg-card border-border rounded-xl p-6 space-y-5">
+    <Card id="topup" className="bg-card border-border rounded-xl p-4 sm:p-6 space-y-5 overflow-hidden">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Nạp ZaloPay</h2>
@@ -164,29 +164,29 @@ export default function TopupSection() {
           </select>
         </div>
 
-        <div className="rounded-lg border border-dashed border-primary/30 bg-background/60 p-4 space-y-2 text-[11px]">
+        <div className="rounded-lg border border-dashed border-primary/30 bg-background/60 p-3 sm:p-4 space-y-2 text-[11px]">
           <div className="flex justify-between items-center gap-4">
             <span className="text-muted-foreground">Ví nhận tiền:</span>
             <span className="font-bold text-[#0068FF]">ZaloPay</span>
           </div>
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex justify-between items-start gap-3">
             <span className="text-muted-foreground">Số ví / tài khoản:</span>
             <div className="flex items-center gap-1 min-w-0">
-              <span className="font-bold truncate">{topupRequest?.accountNumber || ZALOPAY_WALLET}</span>
+              <span className="font-bold break-all text-right">{topupRequest?.accountNumber || ZALOPAY_WALLET}</span>
               <Copy
                 className="h-3 w-3 cursor-pointer hover:text-primary shrink-0"
                 onClick={() => void copyToClipboard(topupRequest?.accountNumber || ZALOPAY_WALLET)}
               />
             </div>
           </div>
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex justify-between items-start gap-4">
             <span className="text-muted-foreground">Chủ ví:</span>
-            <span className="font-bold">{topupRequest?.accountName || ZALOPAY_OWNER}</span>
+            <span className="font-bold text-right break-words">{topupRequest?.accountName || ZALOPAY_OWNER}</span>
           </div>
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex justify-between items-start gap-3">
             <span className="text-muted-foreground">Nội dung:</span>
             <div className="flex items-center gap-1 min-w-0">
-              <span className="font-bold text-primary truncate">{topupRequest?.transferContent || "Tạo lệnh để nhận mã nạp"}</span>
+              <span className="font-bold text-primary break-all text-right">{topupRequest?.transferContent || "Tạo lệnh để nhận mã nạp"}</span>
               <Copy
                 className="h-3 w-3 cursor-pointer hover:text-primary shrink-0"
                 onClick={() => void copyToClipboard(topupRequest?.transferContent || "")}
@@ -225,9 +225,9 @@ export default function TopupSection() {
           )}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2">
           <Button
-            className="flex-1 font-bold uppercase text-xs h-10 bg-[#0068FF] text-white hover:bg-[#0050c7]"
+            className="w-full min-w-0 !shrink !whitespace-normal break-words text-center leading-tight font-bold text-[11px] sm:text-xs min-h-10 h-auto py-2 bg-[#0068FF] text-white hover:bg-[#0050c7]"
             onClick={() => void createZaloPayRequest()}
             disabled={isLoading}
           >
@@ -235,7 +235,7 @@ export default function TopupSection() {
           </Button>
           <Button
             variant="outline"
-            className="flex-1 font-bold uppercase text-xs h-10"
+            className="w-full min-w-0 !shrink !whitespace-normal break-words text-center leading-tight font-bold text-[11px] sm:text-xs min-h-10 h-auto py-2"
             onClick={() => void refreshZaloPayStatus()}
             disabled={isCheckingStatus || !topupRequest}
           >

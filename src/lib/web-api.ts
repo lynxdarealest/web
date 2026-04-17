@@ -1,10 +1,22 @@
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").trim().replace(/\/+$/, "");
 
 function buildUrl(path: string): string {
-  if (!path.startsWith("/")) {
-    return `${API_BASE}/${path}`;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+
+  if (!API_BASE) {
+    return normalizedPath;
   }
-  return `${API_BASE}${path}`;
+
+  let finalPath = normalizedPath;
+
+  // Avoid duplicated prefixes when API_BASE already includes /api or /api/web.
+  if (/\/api\/web$/i.test(API_BASE) && /^\/api\/web(\/|$)/i.test(finalPath)) {
+    finalPath = finalPath.replace(/^\/api\/web/i, "");
+  } else if (/\/api$/i.test(API_BASE) && /^\/api(\/|$)/i.test(finalPath)) {
+    finalPath = finalPath.replace(/^\/api/i, "");
+  }
+
+  return `${API_BASE}${finalPath}`;
 }
 
 export async function webApiFetch<T = Record<string, unknown>>(
