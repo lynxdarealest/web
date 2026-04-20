@@ -37,6 +37,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Trang Chủ</a>
           <a href="#news" className="text-sm font-medium hover:text-primary transition-colors">Tin Tức</a>
+          <a href="#guide" className="text-sm font-medium hover:text-primary transition-colors">Hướng Dẫn</a>
           <a href="#download" className="text-sm font-medium hover:text-primary transition-colors">Tải Game</a>
           <a href="#topup" className="text-sm font-medium hover:text-primary transition-colors">Nạp ZaloPay</a>
 
@@ -99,6 +100,7 @@ export default function Navbar() {
         <div className="md:hidden border-t bg-background p-4 flex flex-col gap-4">
           <a href="#" className="text-sm font-medium">Trang Chủ</a>
           <a href="#news" className="text-sm font-medium">Tin Tức</a>
+          <a href="#guide" className="text-sm font-medium">Hướng Dẫn</a>
           <a href="#download" className="text-sm font-medium">Tải Game</a>
           <a href="#topup" className="text-sm font-medium">Nạp ZaloPay</a>
 

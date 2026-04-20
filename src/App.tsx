@@ -2,6 +2,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/Hero";
 import NewsSection from "./components/NewsSection";
+import GuideSection from "./components/GuideSection";
 import DownloadSection from "./components/DownloadSection";
 import TopupSection from "./components/TopupSection";
 import LiveActivity from "./components/LiveActivity";
@@ -22,6 +23,7 @@ function AppContent() {
         <div className="space-y-8">
           <Hero stats={dashboard.stats} loading={dashboardLoading} />
           <NewsSection />
+          <GuideSection />
           <DownloadSection />
           <TransactionHistory />
         </div>
