@@ -1,9 +1,12 @@
+const DEFAULT_ANDROID_APK_URL = "/download/rto-latest.apk";
+const ANDROID_APK_URL = (import.meta.env.VITE_ANDROID_APK_URL || DEFAULT_ANDROID_APK_URL).trim() || DEFAULT_ANDROID_APK_URL;
+
 const DOWNLOAD_OPTIONS = [
   {
     platform: "Android",
     packageType: "APK",
     label: "Tải ngay",
-    link: "https://drive.google.com/file/d/1DrSXf9kp24gA14P-TniHH4CVgivxyr3i/view?usp=drive_link",
+    link: ANDROID_APK_URL,
   },
   { platform: "PC / Windows", packageType: "EXE", label: "Đang cập nhật" },
   { platform: "iOS / iPhone", packageType: "IPA", label: "Đang cập nhật" },
@@ -14,7 +17,7 @@ export default function DownloadSection() {
     <section id="download" className="py-12">
       <div className="mb-8">
         <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Tải Game Ngay</h2>
-        <p className="text-muted-foreground mt-1 text-xs">Các bản phát hành sẽ được cập nhật ngay khi có file cài đặt chính thức.</p>
+        <p className="text-muted-foreground mt-1 text-xs">Bản Android tải trực tiếp từ máy chủ: nhanh hơn và không cần qua Google Drive.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
