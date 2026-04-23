@@ -6,7 +6,7 @@
     },
     {
       "source": "/download/:path*",
-      "destination": "http://221.132.21.188:707/download/:path*"
+      "destination": "http://221.132.21.188:707/assetbundles/android/:path*"
     }
   ]
 }
