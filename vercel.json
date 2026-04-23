@@ -1,4 +1,19 @@
 {
+  "headers": [
+    {
+      "source": "/download/:path*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.android.package-archive"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"rto-latest.apk\""
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/:path*",
